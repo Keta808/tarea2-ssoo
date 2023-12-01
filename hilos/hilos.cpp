@@ -16,8 +16,14 @@ void procesarFilas(Mat& image, Mat& grayImage, int startRow, int endRow) {
     }
 }
 
-int main() {
-    Mat image = imread("nasa_pesada.png", IMREAD_COLOR);
+int main(int argc, char*argv[]) {
+
+        string imagenEntrada = argv[1];
+        string imagenSalida = argv[2];
+        int numThreads = atoi(argv[3]);
+
+
+    Mat image = imread(imagenEntrada, IMREAD_COLOR);
 
     if (image.empty()) {
         cout << "No se puede cargar la imagen" << endl;
@@ -26,19 +32,12 @@ int main() {
 
     Mat grayImage(image.rows, image.cols, CV_8UC1);
 
-    // Número de hilos que deseas utilizar
-    const int numThreads = 4;
+    int rowsPerThread = image.rows / numThreads ;
 
-    // Calcular el número de filas que cada hilo procesará
-    int rowsPerThread = image.rows / numThreads;
-
-    // Vector para almacenar los hilos
     vector<thread> threads;
 
-    // Iniciar el cronómetro
     auto start = chrono::high_resolution_clock::now();
 
-    // Iniciar los hilos
     for (int i = 0; i < numThreads; i++) {
         int startRow = i * rowsPerThread;
         int endRow = (i == numThreads - 1) ? image.rows : (i + 1) * rowsPerThread;
@@ -46,19 +45,16 @@ int main() {
         threads.emplace_back(procesarFilas, ref(image), ref(grayImage), startRow, endRow);
     }
 
-    // Esperar a que todos los hilos terminen
     for (auto& t : threads) {
         t.join();
     }
 
-    // Detener el cronómetro
     auto stop = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
 
     cout << "Tiempo de ejecución: " << duration.count() << " ms" << endl;
 
-    // Guardar la imagen en escala de grises
-    imwrite("nasa_gris.png", grayImage);
+    imwrite(imagenSalida, grayImage);
 
     return 0;
 }

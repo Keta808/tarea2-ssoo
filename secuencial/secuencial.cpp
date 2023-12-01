@@ -5,11 +5,14 @@
 using namespace cv;
 using namespace std;
 
-int main() {
-    // Iniciar el cronómetro
+int main(int argc, char*argv[]) {
+
+    string imagenEntrada = argv[1];
+    string imagenSalida = argv[2];
+
     auto start = chrono::high_resolution_clock::now();
 
-    Mat image = imread("nasa_pesada.png", IMREAD_COLOR);
+    Mat image = imread(imagenEntrada, IMREAD_COLOR);
 
     if (image.empty()) {
         cout << "No se puede cargar la imagen" << endl;
@@ -33,7 +36,7 @@ int main() {
     cout << "Tiempo de ejecución: " << duration.count() << " ms" << endl;
 
     // Guardar la imagen en escala de grises
-    imwrite("nasa_pesada_secuencial.png", grayImage);
+    imwrite(imagenSalida, grayImage);
 
     return 0;
 }
