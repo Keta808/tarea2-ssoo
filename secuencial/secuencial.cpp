@@ -40,3 +40,5 @@ int main(int argc, char*argv[]) {
 
     return 0;
 }
+
+//g++ -o secuencial secuencial.cpp -std=c++11 `pkg-config --cflags --libs opencv4`

@@ -58,3 +58,5 @@ int main(int argc, char*argv[]) {
 
     return 0;
 }
+
+//g++ -o hilos hilos.cpp -std=c++11 `pkg-config --cflags --libs opencv4`
