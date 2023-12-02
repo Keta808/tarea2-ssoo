@@ -8,10 +8,9 @@ Requisitos previos:
 
 Ejecucion:
 1.- Tener una terminal abierta.
-2.- Clonar el repositorio usando: git clone <link_repositorio> (eliminar "<>").
-3.- Ingresar al directorio del proyecto usando: cd tarea2-ssoo
-4.- Ejecutar el comando: make
-5.- Ejecutar el comando: ./secuencial imagen_a_color.jpg imagen_gris.jpg 
+2.- Ingresar al directorio del proyecto usando: cd tarea2-ssoo
+3.- Ejecutar el comando: make
+4.- Ejecutar el comando: ./secuencial imagen_a_color.jpg imagen_gris.jpg 
     Donde imagen_a_color.jpg debe ser reemplazado por el nombre de la imagen que se quiere
     transformar y imagen_gris.jpg es el nombre de la imagen que se obtendra.
-6.- Luego de eso se mostrara en la terminal cuanto tardo en llevarse a cabo la transformacion y a la izquierda en el directorio del codigo aparecera la imagen en escala de grises.
+5.- Luego de eso se mostrara en la terminal cuanto tardo en llevarse a cabo la transformacion y a la izquierda en el directorio del codigo aparecera la imagen en escala de grises.

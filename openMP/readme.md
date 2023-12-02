@@ -8,10 +8,9 @@ Requisitos previos:
 
 Ejecucion:
 1.- Tener una terminal abierta.
-2.- Clonar el repositorio usando: git clone <link_repositorio> (eliminar "<>").
-3.- Ingresar al directorio del proyecto usando: cd tarea2-ssoo
-4.- Ejecutar el comando: make
-5.- Ejecutar el comando: ./openMP imagen_a_color.jpg imagen_gris.jpg 4
+2.- Ingresar al directorio del proyecto usando: cd tarea2-ssoo
+3.- Ejecutar el comando: make
+4.- Ejecutar el comando: ./openMP imagen_a_color.jpg imagen_gris.jpg 4
     Donde imagen_a_color.jpg debe ser reemplazado por el nombre de la imagen que se quiere
     transformar, imagen_gris.jpg es el nombre de la imagen que se obtendra y 4 en este caso es el numero de hilos con los que se ejecutara el programa.
-6.- Luego de eso se mostrara en la terminal cuanto tardo en llevarse a cabo la transformacion y a la izquierda en el directorio del codigo aparecera la imagen en escala de grises.
+5.- Luego de eso se mostrara en la terminal cuanto tardo en llevarse a cabo la transformacion y a la izquierda en el directorio del codigo aparecera la imagen en escala de grises.
