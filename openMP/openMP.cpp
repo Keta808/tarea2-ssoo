@@ -6,9 +6,11 @@ g++ -o versionOpenMP versionOpenMP.cpp -std=c++11 `pkg-config --cflags --libs op
 #include <omp.h>
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include <chrono>
 
 using namespace cv;
 using namespace std;
+using namespace std::chrono;
 
 //Codigo que ocupa la API OPenMP para hacer version1.cpp
 int main(int argc, char *argv[]) {
@@ -31,6 +33,7 @@ int main(int argc, char *argv[]) {
     }
 
     Mat grayImage(image.rows, image.cols, CV_8UC1);
+    auto start_time = high_resolution_clock::now();
     // Recorrer la imagen y mostrar los valores de los píxeles (en BGR)
     #pragma omp parallel for num_threads(numHilos)
     for(int r=0; r<image.rows; r++) {
@@ -44,9 +47,9 @@ int main(int argc, char *argv[]) {
 
     imwrite(nombreImagenSalida, grayImage);
     cout << "Imagen en gris creada con exito\n";
-    cout << "hola tonotos\n";
-    int b = 0;
-    cout << "b es igual a: " << b << "\n";
+    auto end_time = high_resolution_clock::now();
+    auto duration = duration_cast<seconds>(end_time - start_time);
+    cout << "Tiempo de ejecucion: " << duration.count() << " segundos" << endl;
 
     return 0;
 }
