@@ -44,6 +44,9 @@ int main(int argc, char *argv[]) {
 
     imwrite(nombreImagenSalida, grayImage);
     cout << "Imagen en gris creada con exito\n";
+    cout << "hola tonotos\n";
+    int b = 0;
+    cout << "b es igual a: " << b << "\n";
 
     return 0;
 }
