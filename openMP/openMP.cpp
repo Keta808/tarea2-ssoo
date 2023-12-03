@@ -54,10 +54,14 @@ int main(int argc, char *argv[]) {
 
     // Fin de la medición del tiempo de ejecución y cálculo de la duración
     auto end_time = high_resolution_clock::now();
-    auto duration = duration_cast<seconds>(end_time - start_time);
+
+    auto time_taken = duration_cast<duration<double>>(end_time - start_time);
+    cout << "Tiempo de ejecución: " << time_taken.count() << " segundos" << endl;
+
+    // auto duration = duration_cast<duration<double>>(end_time - start_time);
 
     // Mensaje con el tiempo de ejecución
-    cout << "Tiempo de ejecucion: " << duration.count() << " segundos" << endl;
+    // cout << "Tiempo de ejecucion: " << duration.count() << " segundos" << endl;
 
     return 0;
 }
