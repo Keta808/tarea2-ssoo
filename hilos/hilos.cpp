@@ -50,7 +50,7 @@ int main(int argc, char*argv[]) {
     }
 
     auto stop = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::seconds>(stop - start);
+    auto duration = chrono::duration_cast<chrono::duration<double>>(stop - start);
 
     cout << "Tiempo de ejecución: " << duration.count() << " s" << endl;
 
